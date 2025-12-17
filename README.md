@@ -8,22 +8,13 @@ This project focuses on applying **Computer Science principles** to real-world q
 ## ✨ Features
 
 ### Implemented
-- Load and clean historical price data
-- Compute simple and log returns
-- Volatility analysis (rolling and annualised)
-- Risk metrics:
-  - Beta
-  - Correlation and covariance matrices
-  - Sharpe and Sortino ratios
-  - Maximum and rolling drawdowns
-- FastAPI endpoints for metric computation
-- Interactive data visualisation using Plotly (frontend)
+- (Update soon)
 
 ### In Progress / Planned
-- Value at Risk (VaR)
-- Conditional Value at Risk (CVaR)
-- Portfolio-level aggregation and optimisation
-- Extended test coverage (unit + integration)
+- Portfolio level summary
+  - portfolio creation sidebar (minor work)
+  - AI generated summary (needs accuracy + efficiency work)
+  - (Update soon)
 
 
 ---
@@ -72,6 +63,8 @@ volatility-risk-project/
 └── README.md                 # Project overview + setup instructions
 ```
 
+---
+
 ## ▶️ Running Locally
 
 ### Backend
@@ -86,6 +79,9 @@ cd frontend
 npm install
 npm run dev
 ```
+
+---
+
 
 ## ⚠️ Disclaimer
 This project is for educational purposes only and does not constitute financial advice.
