@@ -1,0 +1,88 @@
+:root {
+    /* Backgrounds */
+    --bg-main: rgb(22, 22, 22);
+    --bg-secondary: rgb(30, 30, 30);
+    --bg-topbar: rgb(40, 40, 40);
+
+    /* Text */
+    --text-primary: rgb(160, 160, 160);
+    --text-hover: rgb(127, 224, 253);
+
+    /* Highlight */
+    --highlight: rgb(46, 65, 118);
+    --border-color: #555;
+
+    /* Transition */
+    --transition-speed: 0.228s;
+}
+
+.container {
+    height: auto;
+    padding: 10px 30px;
+}
+
+.metricContainer {
+    background-color: var(--bg-topbar);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    gap: 3rem;
+}
+
+.metric h3 {
+    margin-bottom: 0.5rem;
+}
+
+.metric pre {
+    background: var(--bg-topbar);
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+.mainText {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+.chartSelector {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chartSelector select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.chartSelector select:focus {
+  outline: none;
+  border-color: var(--text-hover);
+}
+
+.chartContainer {
+  margin-top: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 0.8rem;
+  padding: 1rem;
+
+  width: 100%;
+  min-height: 300px;   /* prevents it from collapsing */
+  height: 50vh;        /* responsive height relative to viewport */
+  position: relative;
+  overflow: hidden;
+}

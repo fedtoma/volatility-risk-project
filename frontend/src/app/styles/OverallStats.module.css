@@ -1,0 +1,125 @@
+:root {
+  /* Backgrounds */
+  --bg-main: rgb(22, 22, 22);
+  --bg-secondary: rgb(30, 30, 30);
+  --bg-topbar: rgb(40, 40, 40);
+
+  /* Text */
+  --text-primary: rgb(160, 160, 160);
+  --text-hover: rgb(127, 224, 253);
+
+  /* Highlight */
+  --highlight: rgb(46, 65, 118);
+  --border-color: #555;
+
+  /* Transition */
+  --transition-speed: 0.228s;
+}
+
+.container {
+  height: auto;
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 30px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; /* align top */
+  gap: 2rem;
+}
+
+.summaryContainer {
+  background-color:var(--bg-topbar);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.summary {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500;
+}
+
+.mainText {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.subText {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.subsubText {
+  font-size: 1rem;
+}
+
+.badgesColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* evenly distribute badges top to bottom */
+  height: 100%; /* take full height of parent column */
+  align-items: center;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* pill shape */
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+}
+
+/* Color variants for badges */
+.badgeRiskLow {
+  color: #22c55e; /* green-500 */
+}
+
+.badgeRiskModerate {
+  color: #facc15; /* yellow-400 */
+}
+
+.badgeRiskHigh {
+  color: #ef4444; /* red-500 */
+}
+
+.badgePerformanceUnderperform {
+  color: #ef4444; /* red-500 */
+}
+
+.badgePerformanceNeutral {
+  color: #9ca3af; /* gray-400 */
+}
+
+.badgePerformanceOutperform {
+  color: #22c55e; /* green-500 */
+}
+
+.badgeSignal {
+  color: #3b82f6; /* blue-500 */
+}
+
+.badgeRiskLow,
+.badgeRiskModerate,
+.badgeRiskHigh,
+.badgePerformanceUnderperform,
+.badgePerformanceNeutral,
+.badgePerformanceOutperform,
+.badgeSignal {
+  font-weight: 800;
+}
+
+.column1 {
+  width: 70%;
+}
+
+.column2 {
+  width: 30%;
+  padding: 30px;
+}
+
+.column1, .column2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

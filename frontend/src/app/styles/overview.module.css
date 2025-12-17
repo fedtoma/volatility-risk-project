@@ -1,0 +1,289 @@
+:root {
+  /* Backgrounds */
+  --bg-main: rgb(22, 22, 22);
+  --bg-secondary: rgb(30, 30, 30);
+  --bg-topbar: rgb(40, 40, 40);
+
+  /* Text */
+  --text-primary: rgb(160, 160, 160);
+  --text-hover: rgb(127, 224, 253);
+
+  /* Highlight */
+  --highlight: rgb(46, 65, 118);
+  --border-color: #555;
+
+  /* Transition */
+  --transition-speed: 0.228s;
+}
+
+/*======================================================
+  Typography
+======================================================*/
+.mainText {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.subText {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.emptyText {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/*======================================================
+  Cards
+======================================================*/
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 150px;
+  flex: 1 1 150px;
+  text-align: center;
+}
+
+/*======================================================
+  Layout Columns
+======================================================*/
+.columns {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.leftCol {
+  flex: 1;
+}
+
+.rightCol {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.columns3 {
+  display: flex;
+  gap: 2rem;
+}
+
+.col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/*======================================================
+  Pie Chart
+======================================================*/
+.colPieContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 1 auto;   /* grow and shrink */
+  min-height: 0;    /* allow shrinking inside flexbox */
+}
+
+.colPie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
+  height: 220px;
+  min-height: 120px;
+  flex-shrink: 1;
+}
+
+/*======================================================
+  Stock Selection
+======================================================*/
+.stockSelection {
+  background-color: var(--bg-topbar);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.stockList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stockItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+}
+
+/*======================================================
+  Selected Stocks
+======================================================*/
+.selectedStockContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  max-height: 300px;
+  background: transparent;
+}
+
+
+
+.selectedStockList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selectedStockItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.7rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  user-select: none;
+  transition: background-color var(--transition-speed) ease-in-out,
+              color var(--transition-speed) ease-in-out;
+}
+
+.selectedStockItem:hover {
+  background-color: var(--highlight);
+  color: var(--text-hover);
+}
+
+.removeBtn {
+  border: none;
+  background: transparent;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  line-height: 1;
+  padding: 0;
+  width: auto;
+  height: auto;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.removeBtn:hover {
+  color: red;
+}
+
+/*======================================================
+  Inputs
+======================================================*/
+.numberInput {
+  width: 30px;
+  height: 28px;
+  padding: 0;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 28px;
+  box-sizing: border-box;
+
+  /* Remove default arrows */
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*======================================================
+  Range / Rolling Periods
+======================================================*/
+.rangerollingrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.selectedRange {
+  min-width: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed) ease-in-out,
+              color var(--transition-speed) ease-in-out;
+}
+
+.selectedRange:hover {
+  color: var(--text-hover);
+}
+
+.activeRange {
+  background-color: rgba(80, 127, 255, 0.411);
+  color: var(--text-hover);
+}
+
+.separatorLine {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 12px 0; /* spacing around the line */
+}
+
+/*======================================================
+  Buttons
+======================================================*/
+.confirmBtn {
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: background-color var(--transition-speed) ease-in-out,
+              color var(--transition-speed) ease-in-out;
+}
+
+.confirmed {
+  background-color: var(--highlight);
+  color: var(--text-hover);
+}
+
+/*======================================================
+  Misc Containers
+======================================================*/
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.controlSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

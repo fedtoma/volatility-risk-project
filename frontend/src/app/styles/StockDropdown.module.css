@@ -1,0 +1,65 @@
+import styles from 
+
+:root {
+  /* 🎨 Define your color palette */
+  --bg-main: rgb(22, 22, 22);
+  --bg-secondary: rgb(30, 30, 30);
+  --bg-topbar: rgb(40, 40, 40);
+
+  --text-primary: rgb(160, 160, 160);
+  --text-hover: rgb(127, 224, 253);
+
+  --highlight: rgba(80, 127, 255, 0.411);
+  --border-color: #555;
+
+  --transition-speed: 0.228s;
+}
+
+
+
+.dropdownContainer {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  height: 60%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  display: block;
+}
+
+.searchInput:focus {
+  border-color: rgb(127, 224, 253);
+}
+
+.dropdownList {
+  position: absolute;
+  top: 100%;                /* directly below the input */
+  left: 50%;                /* center horizontally relative to parent */
+  transform: translateX(-50%); /* offset by half its width to truly center */
+  width: 90%;               /* or whatever width you prefer */
+  max-height: 300px;        /* scrollable height */
+  overflow-y: auto;         /* scroll inside */
+  border-radius: 6px;
+  background-color: var(--bg-topbar);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  margin-top: -2px;          /* move up by 2px */
+}
+
+.dropdownItem {
+  composes: option from "./Dashboard.module.css";
+  color: white; /* override */
+}
+
+.dropdownMessage {
+  padding: 8px;
+  cursor: default;   /* not clickable */
+  background: none;  /* no hover effect */
+}

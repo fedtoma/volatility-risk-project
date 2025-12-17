@@ -1,0 +1,334 @@
+/*======================================================
+  Root Variables
+======================================================*/
+:root {
+  --bg-main: rgb(22, 22, 22);
+  --bg-secondary: rgb(30, 30, 30);
+  --bg-topbar: rgb(40, 40, 40);
+
+  --text-primary: rgb(160, 160, 160);
+  --text-hover: rgb(127, 224, 253);
+
+  --highlight: rgb(46, 65, 118);
+  --border-color: #555;
+
+  --transition-speed: 0.25s;
+}
+
+/*======================================================
+  Layout Containers
+======================================================*/
+/* Container for the whole page */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;       /* full viewport height */
+  background-color: var(--bg-main);
+}
+
+/* Page layout: sidebar + main content */
+.pageLayout {
+  display: flex;
+  flex: 1 1 auto;      /* fill remaining height under topbar */
+  width: 100%;
+  overflow: hidden;    /* sidebar handled separately */
+}
+
+/* Sidebar (fixed) */
+.sidebar {
+  position: fixed;
+  top: 50px;                /* below topbar */
+  left: 0;
+  bottom: 0;
+  width: 18rem;
+  background-color: var(--bg-main);
+  border-right: 1px solid var(--border-color);
+  padding: 10px 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Main content inside sidebar */
+.sidebarContent {
+  flex: 1;                                /* take full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;          /* space items evenly */
+  gap: 1.5rem;
+  overflow-y: auto;                        /* scroll only if overflow */
+}
+
+/* Footer button always pinned */
+.sidebarFooter {
+  margin-top: auto;                        /* stays at bottom */
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main content area (right column) */
+.rightColumn {
+  flex: 1 1 auto;      /* take remaining horizontal space */
+  min-width: 0;        /* allow content to shrink in flex */
+  overflow-y: auto;    /* scroll vertically if content overflows */
+  margin: 20px;       /* optional padding */
+  transition: margin-left 0.3s ease;
+}
+
+.pageLayout.sidebarOpen .rightColumn {
+  margin-left: 18rem;
+}
+
+
+/*======================================================
+  Top Bars
+======================================================*/
+.topBar {
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-topbar);
+  position: relative;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.secondTopBar {
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 15px;
+}
+
+/*======================================================
+  Sidebar Toggle (bookmark-style)
+======================================================*/
+.sidebarToggle {
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+  transform: translateY(-50%) translateX(1px);
+
+  width: 2rem;
+  height: 5rem;
+
+  border: none;
+  background: var(--bg-topbar);
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); /* trapezium */
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+.sidebarToggle:hover {
+  background: var(--highlight);
+  color: var(--text-hover);
+}
+
+/*======================================================
+  Chart & Graph Section
+======================================================*/
+.chart {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.chartWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.graphSelector {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 12px;
+}
+
+/*======================================================
+  Bottom Bar (Range + Legend)
+======================================================*/
+.bottomrowRangeAndLegend {
+  flex: 0 0 50px;
+  margin: 0 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rangerollingrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: #666;
+  margin: 0 12px;
+}
+
+.selectedRange {
+  min-width: 40px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.selectedRange:hover {
+  color: var(--text-hover);
+}
+
+.activeRange {
+  background-color: rgba(80, 127, 255, 0.4);
+  color: var(--text-hover);
+}
+
+.customLegend {
+  display: flex;
+  gap: 12px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-size: 14px;
+}
+
+.legendColorBox {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/*======================================================
+  Dropdowns & Selectors
+======================================================*/
+.selectWrapper,
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  user-select: none;
+}
+
+.selected {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color var(--transition-speed);
+}
+
+.selected:hover {
+  color: var(--text-hover);
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  margin-top: 4px;
+  right: 0;
+  width: auto;
+  max-width: 113px;
+
+  border-radius: 6px;
+  background: var(--bg-topbar);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+
+  white-space: normal;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+.option {
+  padding: 10px 12px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 16px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.option:hover {
+  background-color: var(--highlight);
+  color: var(--text-hover);
+}
+
+/*======================================================
+  Stats & Misc
+======================================================*/
+.statItem {
+  font-size: 16px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statValue:hover {
+  color: var(--text-hover);
+}
+
+.gradientLegend {
+  width: 300px;
+}
+
+.gradientLegendBar {
+  background: linear-gradient(to right, rgb(44, 160, 44), rgb(255, 187, 0), rgb(214, 39, 40));
+  height: 20px;
+  border-radius: 6px;
+}
+
+.gradientLegendLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #A0A0A0;
+}
+
+.metricSelector {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
