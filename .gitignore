@@ -1,0 +1,25 @@
+# Frontend
+frontend/node_modules/
+frontend/.next/
+
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Data / cache files
+*.pkl
+*.db
+
+# Local ML models
+backend/models/
+
+# IDE files
+.idea/
+.vscode/
