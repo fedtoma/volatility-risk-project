@@ -8,13 +8,10 @@ This project focuses on applying **Computer Science principles** to real-world q
 ## ✨ Features
 
 ### Implemented
-- (Update soon)
+- (To be completed)
 
 ### In Progress / Planned
-- Portfolio level summary
-  - portfolio creation sidebar (minor work)
-  - AI generated summary (needs accuracy + efficiency work)
-  - (Update soon)
+- (To be completed)
 
 
 ---
