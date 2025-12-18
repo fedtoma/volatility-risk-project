@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
-from backend.utils.helpers import convert_timestamps, get_calendar_cutoff
-from backend.services.stocks import fetch_stock_data
+from utils.helpers import convert_timestamps, get_calendar_cutoff
+from services.stocks import fetch_stock_data
 
 router = APIRouter()
 

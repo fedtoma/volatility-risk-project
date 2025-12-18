@@ -8,10 +8,11 @@ This project focuses on applying **Computer Science principles** to real-world q
 ## ✨ Features
 
 ### Implemented
-- (To be completed)
+- Integrated local LLaMA-based language model with successful token streaming for real-time responses.
 
 ### In Progress / Planned
-- (To be completed)
+- Address mismatches between AI-generated insights and traffic-light indicators; indicators are rule-based (hardcoded), so discrepancies likely originate from AI response accuracy.
+
 
 
 ---
@@ -58,6 +59,7 @@ volatility-risk-project/
 │
 ├── .gitignore                # Repo-wide ignores (node_modules, .next, models, cache, venv, etc.)
 └── README.md                 # Project overview + setup instructions
+└── requirements.txt
 ```
 
 ---

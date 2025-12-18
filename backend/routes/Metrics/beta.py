@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
-from backend.utils.helpers import get_calendar_cutoff, LOCAL_BENCHMARKS, ALLOWED_BENCHMARKS
-from backend.services.stocks import fetch_stock_data, get_stock_exchange
+from utils.helpers import get_calendar_cutoff, LOCAL_BENCHMARKS, ALLOWED_BENCHMARKS
+from services.stocks import fetch_stock_data, get_stock_exchange
 import numpy as np
 
 router = APIRouter()

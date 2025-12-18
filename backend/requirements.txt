@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+numpy
+pandas
+llama-cpp-python
+yfinance
+scipy

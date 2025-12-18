@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
 import numpy as np
-from backend.utils.helpers import convert_timestamps, ROLLING_WINDOWS
+from utils.helpers import convert_timestamps, ROLLING_WINDOWS, get_calendar_cutoff
+from services.stocks import fetch_stock_data
 
 router = APIRouter()
 
@@ -22,9 +23,6 @@ def get_portfolio_metrics(
 
     weights = np.array(weights)
     weights = weights / weights.sum()  # normalize weights
-
-    from backend.services.stocks import fetch_stock_data
-    from backend.utils.helpers import get_calendar_cutoff
 
     prices = fetch_stock_data(stocks)
     returns = prices.pct_change().dropna()

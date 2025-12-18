@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
-from backend.utils.helpers import get_calendar_cutoff
-from backend.services.clustering import cluster_matrix
-from backend.services.stocks import fetch_stock_data
+from utils.helpers import get_calendar_cutoff
+from services.clustering import cluster_matrix
+from services.stocks import fetch_stock_data
 
 router = APIRouter()
 
