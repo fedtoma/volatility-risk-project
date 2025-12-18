@@ -6,6 +6,7 @@ This project focuses on applying **Computer Science principles** to real-world q
 <img width="1823" height="928" alt="image" src="https://github.com/user-attachments/assets/88798703-ab5f-48e2-8578-5b733545ecb3" />
 
 Screenshot shown is from an early development stage and does not reflect the final design or feature set.
+
 ---
 
 ## ✨ Features
