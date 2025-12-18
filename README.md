@@ -3,6 +3,10 @@
 A **work-in-progress quantitative finance project** for analysing financial volatility and risk metrics using historical market data.  
 This project focuses on applying **Computer Science principles** to real-world quantitative problems.
 
+<img width="1823" height="928" alt="image" src="https://github.com/user-attachments/assets/88798703-ab5f-48e2-8578-5b733545ecb3" />
+
+Screenshot shown is from an early development stage and does not reflect the final design or feature set.
+
 ---
 
 ## ✨ Features
@@ -37,6 +41,7 @@ This project focuses on applying **Computer Science principles** to real-world q
 volatility-risk-project/
 │
 ├── backend/                  # Python backend (API + analytics)
+│   ├── .venv/
 │   ├── cache/                # Local cached outputs (ignored)
 │   ├── models/               # Local LLM model files (GGUF, ignored)
 │   ├── routes/
@@ -70,7 +75,7 @@ volatility-risk-project/
 ```bash
 cd backend
 pip install -r requirements.txt
-python main.py
+python -m uvicorn main:app --reload
 ```
 ### Frontend
 ```bash
