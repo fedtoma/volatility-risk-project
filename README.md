@@ -18,6 +18,7 @@ Screenshot shown is from an early development stage and does not reflect the fin
 ### In Progress / Planned
 - Address mismatches between AI-generated insights and traffic-light indicators; indicators are rule-based (hardcoded), so discrepancies likely originate from AI response accuracy.
 - Update graphing logic to dynamically support portfolio-level analysis with selectable individual stock overlays, while retaining the ability to display single-stock views on demand.
+- Clarify the scope and effectiveness of range and volatility metrics, specifically whether they are applied at the portfolio construction stage or during graph-level analysis.
 - Enable users to select individual stocks from a portfolio for standalone analysis, providing the same summaries and metrics available at the portfolio level **once portfolio functionality is fully finalised**.
 
 
@@ -54,6 +55,7 @@ volatility-risk-project/
 │   ├── services/             # Core business logic + data processing
 │   ├── utils/                # Shared helpers / utilities
 │   └── main.py
+│   └── requirements.txt
 │
 ├── frontend/                 # Next.js dashboard (UI)
 │   ├── src/
@@ -68,7 +70,6 @@ volatility-risk-project/
 │
 ├── .gitignore                # Repo-wide ignores (node_modules, .next, models, cache, venv, etc.)
 └── README.md                 # Project overview + setup instructions
-└── requirements.txt
 ```
 
 ---
