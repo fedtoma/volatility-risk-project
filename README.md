@@ -13,9 +13,13 @@ Screenshot shown is from an early development stage and does not reflect the fin
 
 ### Implemented
 - Integrated local LLaMA-based language model with successful token streaming for real-time responses.
+- Graphing functionality for all metrics is complete for stock-by-stock comparisons (for previous application version, but useful for new portfolio-level implementation).
 
 ### In Progress / Planned
 - Address mismatches between AI-generated insights and traffic-light indicators; indicators are rule-based (hardcoded), so discrepancies likely originate from AI response accuracy.
+- Update graphing logic to dynamically support portfolio-level analysis with selectable individual stock overlays, while retaining the ability to display single-stock views on demand.
+- Enable users to select individual stocks from a portfolio for standalone analysis, providing the same summaries and metrics available at the portfolio level **once portfolio functionality is fully finalised**.
+
 
 
 
