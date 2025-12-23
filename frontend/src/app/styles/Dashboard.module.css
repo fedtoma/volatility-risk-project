@@ -18,26 +18,23 @@
 /*======================================================
   Layout Containers
 ======================================================*/
-/* Container for the whole page */
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;       /* full viewport height */
+  height: 100vh;
   background-color: var(--bg-main);
 }
 
-/* Page layout: sidebar + main content */
 .pageLayout {
   display: flex;
-  flex: 1 1 auto;      /* fill remaining height under topbar */
+  flex: 1 1 auto;
   width: 100%;
-  overflow: hidden;    /* sidebar handled separately */
+  overflow: hidden;
 }
 
-/* Sidebar (fixed) */
 .sidebar {
   position: fixed;
-  top: 50px;                /* below topbar */
+  top: 50px;
   left: 0;
   bottom: 0;
   width: 18rem;
@@ -57,38 +54,34 @@
   transform: translateX(0);
 }
 
-/* Main content inside sidebar */
 .sidebarContent {
-  flex: 1;                                /* take full height */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;          /* space items evenly */
+  justify-content: space-between;
   gap: 1.5rem;
-  overflow-y: auto;                        /* scroll only if overflow */
+  overflow-y: auto;
 }
 
-/* Footer button always pinned */
 .sidebarFooter {
-  margin-top: auto;                        /* stays at bottom */
+  margin-top: auto;
   padding-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Main content area (right column) */
 .rightColumn {
-  flex: 1 1 auto;      /* take remaining horizontal space */
-  min-width: 0;        /* allow content to shrink in flex */
-  overflow-y: auto;    /* scroll vertically if content overflows */
-  margin: 20px;       /* optional padding */
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+  margin: 20px;
   transition: margin-left 0.3s ease;
 }
 
 .pageLayout.sidebarOpen .rightColumn {
   margin-left: 18rem;
 }
-
 
 /*======================================================
   Top Bars
@@ -118,7 +111,7 @@
 }
 
 /*======================================================
-  Sidebar Toggle (bookmark-style)
+  Sidebar Toggle
 ======================================================*/
 .sidebarToggle {
   position: absolute;
@@ -138,11 +131,11 @@
   align-items: center;
   justify-content: center;
 
-  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); /* trapezium */
+  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%);
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: background var(--transition-speed), color var(--transition-speed);
 }
 
@@ -239,7 +232,8 @@
   Dropdowns & Selectors
 ======================================================*/
 .selectWrapper,
-.dropdown {
+.dropdown,
+.rollingSelector {
   display: flex;
   align-items: center;
   gap: 10px;

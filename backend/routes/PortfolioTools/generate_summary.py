@@ -76,6 +76,4 @@ async def generate_summary(metrics: PortfolioMetrics, request: Request):
             print("Streaming error:", e)
             yield "AI failed to generate summary."
 
-    print()
-
     return StreamingResponse(token_stream(), media_type="text/plain")
