@@ -3,15 +3,14 @@ import requests
 from requests.exceptions import RequestException
 import logging
 
-logger = logging.getLogger(__name__)
-
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 TIMEOUT_SECONDS = 5
 
 @router.get("/search")
 def search_ticker(query: str = Query(..., min_length=1, max_length=50)):
-    logger.info("Search request received", extra={"query": query})
+    logger.info("GET /search | query=%s", query)
 
     url = "https://query2.finance.yahoo.com/v1/finance/search"
     params = {"q": query, "quotesCount": 10, "newsCount": 0}
@@ -36,7 +35,7 @@ def search_ticker(query: str = Query(..., min_length=1, max_length=50)):
         )
 
     results = data.get("quotes", [])
-    logger.info("Search completed", extra={"result_count": len(results)})
+    logger.info("Search completed", len(results))
     return {
         "results": [
             {
