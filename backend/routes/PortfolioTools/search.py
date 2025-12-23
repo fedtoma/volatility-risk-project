@@ -35,7 +35,7 @@ def search_ticker(query: str = Query(..., min_length=1, max_length=50)):
         )
 
     results = data.get("quotes", [])
-    logger.info("Search completed", len(results))
+    logger.info("Search completed | len(results)=%d", len(results))
     return {
         "results": [
             {
