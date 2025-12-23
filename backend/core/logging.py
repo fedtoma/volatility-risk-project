@@ -3,11 +3,11 @@ import logging
 def setup_logging() -> None:
     logging.basicConfig(  # Configures global logging system (once)
         level=logging.INFO,
+        # logger.debug() ❌ hidden (unless level is changed)
         # logger.info() ✅ shown
         # logger.warning() ✅ shown
         # logger.error() ✅ shown
-        # logger.debug() ❌ hidden (unless level is changed)
-        format="%(asctime)s %(levelname)s %(name)s - %(message)s", # Defines how each log line looks
+        format="%(asctime)s %(levelname)s %(name)s - %(message)s",  # Defines how each log line looks
     )
 
     # How to use:
