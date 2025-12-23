@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.PortfolioTools import portfolio_metrics, generate_summary, search
 from routes.Metrics import volatility, correlations, rolling_drawdown, sharpesortino, covariances, max_drawdown, beta, \
     returns
+from core.logging import setup_logging
+
+setup_logging()
 
 app = FastAPI()
 
