@@ -13,7 +13,7 @@ else:
     STOCK_CACHE = {}
 
 def fetch_stock_data(tickers: list[str]) -> pd.DataFrame:
-    today = pd.Timestamp.today(tz=None)  # No timezone information attached for testing/caching consistency
+    today = pd.Timestamp.today(tz=None)  # Use timezone-naive timestamp for deterministic cache expiry checks
     tickers_to_fetch = []  # Track which tickers need fresh data
 
     # Decide whether each ticker should be fetched
