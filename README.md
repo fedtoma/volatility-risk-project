@@ -9,6 +9,16 @@ Screenshot shown is from an early development stage and does not reflect the fin
 
 ---
 
+## ⚠️ Important Note
+
+This project evolved from an earlier, simpler system into a more comprehensive application as additional features and ideas were explored over time. While this evolution was valuable from a learning and experimentation perspective, it also introduced a level of complexity that is ultimately unnecessary for a personal project of this nature.
+
+As a result, the current focus is on **consolidation rather than expansion**. Existing components are being carefully refined, tested in isolation, and integrated more deliberately to ensure the system remains understandable, maintainable, and reliable.
+
+The aim is not to maximise feature count, but to arrive at a **stable, well-tested, and coherent implementation** that clearly demonstrates functionality, design decisions, and engineering discipline. Development is therefore prioritising quality, clarity, and robustness over additional scope.
+
+---
+
 ## ✨ Features
 
 ### Implemented
@@ -24,7 +34,7 @@ Screenshot shown is from an early development stage and does not reflect the fin
 
 ### Current bugs / reinforcements to fix:
 - stocks.py fails multi ticker close extraction test
-- graph size only changes when hovered (should rezise according to portfolio maker opening/closing)
+- graph size only changes when hovered (should resize according to portfolio maker opening/closing)
 - stock_cache must be stored in cache folder
 
 
@@ -96,7 +106,40 @@ npm run dev
 ```
 
 ---
+# Application Architecture
 
+## Search Architecture
+
+The stock search feature is designed with a clear separation of responsibilities between the frontend and backend to ensure correctness, resilience, and a smooth user experience.
+
+### Frontend (Client-Side)
+
+- User input is **debounced** to avoid sending a request on every keystroke.
+- Search queries are **URL-encoded** before being sent to prevent input corruption from special characters.
+- In-flight requests are **cancelled** using `AbortController` when newer searches are initiated.
+- A request ID mechanism ensures **only the latest response updates the UI**, preventing race conditions.
+- Basic validation (e.g. empty input) is handled client-side to improve UX and reduce unnecessary API calls.
+
+### Backend (Server-Side)
+
+- The backend is the **source of truth** for validation.
+- Query parameters are validated using FastAPI:
+  - the `query` parameter is required
+  - minimum and maximum length constraints are enforced
+- Requests to the upstream Yahoo Finance API are protected by a **timeout** to prevent blocking.
+- Upstream failures (network errors, timeouts, non-2xx responses) are translated into **502 Bad Gateway** responses.
+- Invalid or malformed upstream JSON responses are handled gracefully and do not crash the API.
+- Structured logging is used to record request lifecycle events and upstream failures.
+
+### Design Principles
+
+- Validation is applied **defensively at multiple layers**:
+  - frontend validation improves usability
+  - backend validation guarantees correctness and security
+- Overlapping search requests are expected and safely handled.
+- The system prioritises **robustness and predictable behaviour** over optimistic assumptions.
+
+---
 
 ## ⚠️ Disclaimer
 This project is for educational purposes only and does not constitute financial advice.
