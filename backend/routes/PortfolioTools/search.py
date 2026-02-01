@@ -81,7 +81,7 @@ def search_ticker(
             "symbol": symbol,
             # Human-readable name of the stock
             # Fall back through possible fields to maximise coverage
-            "shortname": r.get("shortname") or r.get("longname") or r.get("name"),
+            "shortname": r.get("shortname") or r.get("longname") or r.get("name") or "",
             # Exchange where the stock is traded
             # Use display-friendly value if available
             "exchange": r.get("exchange") or r.get("exchDisp"),
